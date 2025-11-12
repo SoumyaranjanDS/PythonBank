@@ -1,55 +1,67 @@
+# Python Bank Management System
+# Simple project using dictionary, functions, and loops
+
+# Dictionary to store all accounts
+# Format: {account_number: {"name": "Name", "balance": amount}}
 accounts = {}
 
-def create_account() :
+# Function to create a new account
+def create_account():
     try:
-        acc_no = int(input("Enter new account number : "))
+        acc_no = int(input("Enter new account number: "))
         if acc_no in accounts:
-            print("Account already exist !")
+            print("Account already exist!")
         else:
-            name = input("Enter your name : ")
-            balance = float(input("Enter initial amount : "))
-            accounts[acc_no] = {"name" : name, "balance" : balance}
-            print("Account successfully created for ", accounts[acc_no]["name"])
+            name = input("Enter your name: ")
+            balance = float(input("Enter initial amount: "))
+            # Store data inside dictionary
+            accounts[acc_no] = {"name": name, "balance": balance}
+            print("Account successfully created for", accounts[acc_no]["name"])
     except ValueError:
-        print("ValueError, Balance and amount both should be numbers.")
+        print("ValueError, Balance and account number should be numbers.")
 
-def deposit_money() :
+# Function to deposit money into an account
+def deposit_money():
     try:
-        acc_no = int(input("Enter your account number : "))
-        if acc_no in accounts :
-            balance = float(input("Enter amount : "))
+        acc_no = int(input("Enter your account number: "))
+        if acc_no in accounts:
+            balance = float(input("Enter amount: "))
             accounts[acc_no]["balance"] += balance
-            print("Balance deposit successful. Balance : ", accounts[acc_no]["balance"])
+            print("Balance deposit successful. Balance:", accounts[acc_no]["balance"])
         else:
             print("Invalid account number.")
     except ValueError:
         print("ValueError, Enter a valid number.")
 
+# Function to withdraw money
 def withdraw_money():
     try:
-        acc_no = int(input("Enter your account number : "))
+        acc_no = int(input("Enter your account number: "))
         if acc_no in accounts:
-            amount = float(input("Enter amount : "))
+            amount = float(input("Enter amount: "))
+            # Check if enough balance exists
             if amount <= accounts[acc_no]["balance"]:
                 accounts[acc_no]["balance"] -= amount
-                print("Amount withdraw successful. Balance : ", accounts[acc_no]["balance"])
+                print("Amount withdraw successful. Balance:", accounts[acc_no]["balance"])
             else:
-                print('Insufficient balance!!')
+                print("Insufficient balance!!")
         else:
-            print("Invalid account number")
+            print("Invalid account number.")
     except ValueError:
-        print("ValueError, Balance should be more than withrawal amount.")
+        print("ValueError, Enter valid number for amount.")
 
+# Function to check balance of a specific account
 def check_balance():
     try:
-        acc_no = int(input("Enter account number : "))
+        acc_no = int(input("Enter account number: "))
         if acc_no in accounts:
-            print("Your account balance is : ", accounts[acc_no]["balance"])
+            print("Your account balance is:", accounts[acc_no]["balance"])
         else:
-            print("Invalid account number")
+            print("Invalid account number.")
     except ValueError:
-        print("ValueError, Enter valid account number.")
+        print("ValueError, Enter a valid account number.")
 
+# Function to view all existing accounts
 def view_all_accounts():
     if accounts:
         print("\n--- All Accounts ---")
@@ -58,6 +70,7 @@ def view_all_accounts():
     else:
         print("No accounts available.")
 
+# Main menu loop
 while True:
     print("\n--- Welcome to Python Bank ---")
     print("1. Create Account")
@@ -67,20 +80,21 @@ while True:
     print("5. View all account info")
     print("6. Exit")
 
-    choice = input("Enter your choice : ")
+    choice = input("Enter your choice: ")
 
-    if choice == '1' :
+    # Menu options
+    if choice == '1':
         create_account()
-    elif choice == '2' :
+    elif choice == '2':
         deposit_money()
-    elif choice == '3' :
+    elif choice == '3':
         withdraw_money()
-    elif choice == '4' :
+    elif choice == '4':
         check_balance()
-    elif choice == '5' :
+    elif choice == '5':
         view_all_accounts()
-    elif choice == '6' :
-        print("Thanks for choosing pythonBank. See you soon!!")
+    elif choice == '6':
+        print("Thanks for choosing Python Bank. See you soon!!")
         break
     else:
-        print("enter a valid choice")
+        print("Enter a valid choice.")
