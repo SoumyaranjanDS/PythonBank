@@ -36,3 +36,18 @@ if x in lst:
     print("Found at position:", lst.index(x))
 else:
     print("Not found")
+
+
+
+
+
+s = input("Enter a string: ")
+
+print("Length:", len(s))
+print("Alternate characters:", s[::2])
+print("Uppercase:", s.upper())
+print("Lowercase:", s.lower())
+print("Title case:", s.title())
+print("Replace spaces with dash:", s.replace(" ", "-"))
+print("Number of 'a':", s.count('a'))
+print("Reversed string:", s[::-1])
