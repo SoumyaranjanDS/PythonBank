@@ -52,7 +52,42 @@ print("Replace spaces with dash:", s.replace(" ", "-"))
 print("Number of 'a':", s.count('a'))
 print("Reversed string:", s[::-1])
 
+# 1. Dictionary with user input
 
+students = {}
+
+n = int(input("Enter number of students: "))
+
+for i in range(n):
+    roll = int(input("Enter roll number: "))
+    name = input("Enter name: ")
+    students[roll] = name
+
+print(students)
+
+roll = int(input("Enter new roll number: "))
+name = input("Enter new name: ")
+students[roll] = name
+
+print(students)
+
+print(students.keys())
+print(students.values())
+
+roll = int(input("Enter roll number to search: "))
+print(students.get(roll, "Not found"))
+
+roll = int(input("Enter roll number to delete: "))
+students.pop(roll, "Not found")
+print(students)
+
+roll = int(input("Enter roll number to update: "))
+name = input("Enter updated name: ")
+students[roll] = name
+print(students)
+
+for r, n in students.items():
+    print(r, n)
 
 
 # 2. Tuple with user input
