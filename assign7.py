@@ -1,27 +1,4 @@
 
-
-# 1. Class Demo and display method
-class Demo:
-    def display(self):
-        print("Hello from Demo class")
-
-obj = Demo()
-obj.display()
-
-
-# 2. Parameterized constructor
-class Student1:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-
-    def display(self):
-        print(self.name, self.age)
-
-s = Student1("Soumya", 22)
-s.display()
-
-
 # 3. Constructor overloading using default arguments
 class Student2:
     def __init__(self, name="Unknown", age=0):
