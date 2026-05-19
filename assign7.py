@@ -1,44 +1,4 @@
 
-# 3. Constructor overloading using default arguments
-class Student2:
-    def __init__(self, name="Unknown", age=0):
-        self.name = name
-        self.age = age
-
-    def display(self):
-        print(self.name, self.age)
-
-s1 = Student2()
-s2 = Student2("Rahul", 21)
-s1.display()
-s2.display()
-
-
-# 4. Polymorphism
-class Dog:
-    def sound(self):
-        print("Dog barks")
-
-class Cat:
-    def sound(self):
-        print("Cat meows")
-
-for animal in (Dog(), Cat()):
-    animal.sound()
-
-
-# 5. Single inheritance
-class Parent1:
-    def show(self):
-        print("Parent class")
-
-class Child1(Parent1):
-    pass
-
-c1 = Child1()
-c1.show()
-
-
 # 6. Method overriding
 class Parent2:
     def show(self):
